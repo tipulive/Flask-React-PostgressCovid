@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:5000
+
+
+
+
+### Members
+GET  {{baseUrl}}/members
+Content-Type: application/json
+
+{
+"email": "test1",
+"password":"test2"
+}
+###
+
+### Create Data
+GET {{baseUrl}}/create
+Content-Type: application/json
+
+{
+"fname": "hello",
+"lname":"how are you"
+}
