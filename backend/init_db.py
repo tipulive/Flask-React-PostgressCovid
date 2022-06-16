@@ -34,7 +34,8 @@ cur.execute('CREATE TABLE covids (id serial PRIMARY KEY,'
                                  'lat varchar (150) unique,'
                                  'long varchar (150) unique,'
                                  'updated varchar (191) NULL,'
-                                 'date_added date DEFAULT CURRENT_TIMESTAMP);'
+                                 'date_added date DEFAULT CURRENT_TIMESTAMP,'
+                                 'CONSTRAINT com UNIQUE (lat,long));'
                                  )
 
 # Insert data into the table

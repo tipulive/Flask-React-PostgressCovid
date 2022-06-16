@@ -30,9 +30,9 @@ def insert():
     page = requests.get('https://covid-api.mmediagroup.fr/v1/cases')
     data=json.loads(page.content)
     for key, value in data.items():
-        sql="""INSERT INTO books (title, author, pages_num, review)VALUES(%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s) ON CONFLICT (lat,long) 
+        sql="""INSERT INTO covids (confirmed,deaths,country,population,sq_km_area,life_expectancy,elevation_in_meters,continent,abbreviation,location,iso,capital_city,lat,long,updated)VALUES(%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s, %s,%s, %s, %s) ON CONFLICT (lat,long) 
                 DO UPDATE 
-                    SET confirmed=%s,deaths=%s,country=%s,population=%s,sq_km_area=%s,life_expectancy=%s,continent=%s,abbreviation=%s,location=%s,iso=%s,capital_city=%s,updated=%s """
+                    SET confirmed=%s,deaths=%s,country=%s,population=%s,sq_km_area=%s,life_expectancy=%s,elevation_in_meters=%s,continent=%s,abbreviation=%s,location=%s,iso=%s,capital_city=%s,updated=%s """
         val=(value["All"].get("confirmed","none"),
              value["All"].get("deaths","none"),
              value["All"].get("country","none"),
